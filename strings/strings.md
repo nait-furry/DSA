@@ -101,3 +101,77 @@ Find occurrences of a substring (pattern) within a string.
     */
   }
   ```
+
+
+## Application Question:
+### Problem:
+ You're building a user profile system. Users enter their full names, but the input often has extra spaces, inconsistent casing, and you need to generate usernames and validate formats.
+
+### Task:
+ Given a user input string like " jaNe doe ", write code to:
+
+## Trim whitespace
+Capitalize first letters of each name
+Check if it contains a space (first and last name)
+Extract initials
+Generate a username by combining lowercase first name, last initial, and a number
+Pad the username to a minimum length if needed
+
+
+
+
+## General Regular Expression Syntax
+
+- **`/`**: Delimiters marking the start and end of the regex pattern  
+- **`pattern`**: The sequence of characters and metacharacters defining what to match  
+- **`flags`**: Optional modifiers that change how the pattern is interpreted
+
+#### Common Flags
+- **`g`**: Global – finds all matches, not just the first  
+- **`i`**: Case-insensitive – ignores case when matching  
+- **`m`**: Multiline – treats `^` and `$` as start/end of lines  
+- **`s`**: Dotall – allows `.` to match newline characters  
+- **`u`**: Unicode – enables full Unicode support
+
+#### Core Components
+- **`[abc]`**: Character class – matches any one character inside the brackets  
+- **`[^abc]`**: Negated character class – matches any character **not** in the brackets  
+- **`a-z`**, **`0-9`**: Range of characters within a class  
+- **`\\d`**: Digit (0–9), **`\\w`**: Word character (letters, digits, underscore), **`\\s`**: Whitespace  
+- **`\\D`**, **`\\W`**, **`\\S`**: Negated versions (non-digit, non-word, non-whitespace)  
+- **`*`**, **`+`**, **`?`**: Quantifiers – match 0+ times, 1+ times, 0 or 1 time  
+- **`^`**, **`$`**: Anchors – match start or end of string  
+- **`(...)`**: Capturing group – groups part of the pattern and captures its value
+
+
+## Subsequence explanation:
+``` js
+
+function getAllSubsequences(str) {
+  if (str.length === 0) return [''];
+  const rest = getAllSubsequences(str.slice(1));
+  return [...rest, ...rest.map(s => str + s)];
+}
+// "ab" → ["", "b", "a", "ab"]   
+
+```
+
+This **recursive function** generates all possible subsequences of a string by deciding whether to include or exclude each character.
+
+### Core Logic
+For each character, you have **2 choices**:
+1. **Exclude** the character (subsequences without it)
+2. **Include** the character (subsequences with it)
+
+### Recursion Process
+
+**Example: `"ab"`**
+
+```
+getAllSubsequences("ab")
+├─ rest = getAllSubsequences("b")
+│  ├─ rest = getAllSubsequences("")
+│  │  └─ returns ['']           // Base case
+│  └─ returns ['', 'b']          // "" and "b" + ""
+└─ returns ['', 'b', 'a', 'ab']  // Previous + 'a' prepended to each
+```
