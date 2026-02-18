@@ -1,6 +1,10 @@
 # DSA
 Learning Data Structure and Algorithm
 
+The Structure:
+***.md : contains concepts, relevant examples, and practice questions;
+***.js : contains answers to the aforementioned questions, alongside other practice examples;
+
 # 🧩 Phase 1: Fundamentals of Data Structures
 
 ## 1. Arrays
