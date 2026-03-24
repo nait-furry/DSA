@@ -12,6 +12,23 @@
 
 - For loop;
 Time: **O(n)**
+Abstracting looping involves using arrow functions:
+  - Most looping involves using an updatable counter ie:
+    ```js
+      let a = 0;
+      console.log(array[a]);
+      a++;
+      // Becoming:
+      function loop(count, action){
+        for(a<count)...{ // Just being lazy... Figure it out
+          action(a)
+        }
+      }
+      looop(5, (a)=>{console.log(array[a])})
+    
+    ```
+  - 
+  - 
 
 ---
 
@@ -661,3 +678,11 @@ What’s your current level (beginner / intermediate / preparing for interviews)
 
 # Key words: 
 hash maaps, time complexity{access, insert/delete at end, insert/delete at beginning, search, }, amortized, Destructuring assignment, Writing tests, Testing for complexity of respective algorithm,  
+
+
+Application:
+Managing large amounts of data, such as in a social network or a search engine.
+Scheduling tasks, to decide which task a computer should do first.
+Planning routes, like in a GPS system to find the shortest path from A to B.
+Optimizing processes, such as arranging tasks so they can be completed as quickly as possible.
+Solving complex problems: From finding the best way to pack a truck to making a computer 'learn' from data.

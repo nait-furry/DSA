@@ -1,0 +1,13 @@
+{
+  "name": "arrays",
+  "version": "1.0.0",
+  "description": "Handling DSA with arrays",
+  "main": "arrays.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node arrays.js",
+    "dev": "node --watch arrays.js"
+  },
+  "author": "Bethuel Agoi",
+  "license": "ISC"
+}

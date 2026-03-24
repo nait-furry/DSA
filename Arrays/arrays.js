@@ -1,15 +1,21 @@
 //abstracting looping:
 function loop(count, action){
     for(let a = 0; a < count; a++ ){
-        action;
+        //console.log(a);
+        action(a);
     }
 }
+
+let array = [1,2,3,6,7,0,0,0,8,9,4,5];
+
 
 // Reverse an array in place;
 function reverseArray(arr){
     const newArr = [];
-    for(let a = 0; a < arr.length; a++){
+    for(let a = 0; arr.length > 0; a++){  // instead of a < arr.length, we check if arr.length > 0 because we are popping elements out of the array, so the length is changing.
+
         newArr.push(arr.pop());
+        
     }
     return newArr;
 }
@@ -19,12 +25,13 @@ function reverseArray(arr){
 function mvZeros(arr){
     //search, slice, shift;
     const newArr = [];
-    const count = 0;
+    let count = 0;
     const slice = [];
     for(let a = 0; a < arr.length; a++){
         if(arr[a]===0){
             count++;
             newArr.push(arr.slice(a+1));
+            console.log("still slicing")
             console.log(newArr);
         }
     }
@@ -33,6 +40,8 @@ function mvZeros(arr){
     }
     return newArr;
 }
+
+// console.log(mvZeros(array).flat(Infinity));
 
 
 // Remove duplicates in sorted array;
@@ -83,4 +92,23 @@ function bnSearch(arr, element){
         }
     }
 }
+
+
+
+//Flattening an array;
+function flattenArray(arr, depth = 1) {
+    return arr.reduce((acc, val) => {
+        if (Array.isArray(val) && depth > 0) {
+            acc.push(...flattenArray(val, depth - 1));
+        } else {
+            acc.push(val);
+        }
+        return acc;
+    }, []);
+}
+
+// Usage
+const nested = [[0, 0, 8, 9, 4, 5], [0, 8, 9, 4, 5], [8, 9, 4, 5]];
+console.log(flattenArray(nested, Infinity));
+// [0, 0, 8, 9, 4, 5, 0, 8, 9, 4, 5, 8, 9, 4, 5]   
 
