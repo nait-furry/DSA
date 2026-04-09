@@ -1,4 +1,17 @@
 //abstracting looping:
+/*
+Complexities: 
+1.Lexical scoping: IE accessing the respective element in the instance of the loop.
+2.Closure: IE the loop variable is being accessed by the function passed as an argument to the loop function, which is a closure.
+3. Higher order functions: IE the loop function is a higher order function because it takes a function as an argument and returns a function.
+4. Callback functions: IE the function passed as an argument to the loop function is a callback function because it is called back by the loop function.
+5. Recursion: IE the loop function can be implemented recursively, but in this case we are using a for loop to implement it iteratively.
+
+# The above complexities are implemented in "complexLoop" function. It takes an additional argument "condition" which is a function that returns a boolean value to determine when to stop the loop. It also takes an additional argument "increment" which is a function that increments the loop variable. This allows for more flexibility in the looping mechanism, as we can define our own stopping condition and incrementing logic.
+*/
+
+let array = [1,2,3,6,7,0,0,0,8,9,4,5];
+
 function loop(count, action){
     for(let a = 0; a < count; a++ ){
         //console.log(a);
@@ -6,8 +19,29 @@ function loop(count, action){
     }
 }
 
-let array = [1,2,3,6,7,0,0,0,8,9,4,5];
+function complexLoop(count, action, condition, increment){}
 
+
+// Finding the maximum/minimum element:
+function findMax(arr){
+    let max = arr[0];
+    for(let a = 1; a < arr.length; a++){
+        if(arr[a] > max){
+            max = arr[a];
+        }
+    }
+    return max;
+}
+
+function findMin(arr){
+    let min = arr[0];
+    for(let a = 1; a < arr.length; a++){
+        if(arr[a] < min){
+            min = arr[a];
+        }
+    }
+    return min;
+}
 
 // Reverse an array in place;
 function reverseArray(arr){
