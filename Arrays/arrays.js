@@ -43,6 +43,27 @@ function findMin(arr){
     return min;
 }
 
+// Bubble sort:
+function bubbleSort(array){
+    for(let a = 1; a <= array.length; a++){
+        for(let b = 1; b <= array.length; b++){
+            if(array[b] < array[b-1]){
+                let arr  = array[b-1];
+                array[b-1] = array[b];
+                array[b] = arr;
+                console.log("nth: " + b + ": " + array + " a: " + a);
+            }else{
+                continue;
+            }
+        }
+       if(a == array.length){
+            return array;
+       }
+    }
+
+}
+
+    
 // Reverse an array in place;
 function reverseArray(arr){
     const newArr = [];
